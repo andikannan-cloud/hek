@@ -1,0 +1,33 @@
+name: Run Python Test
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+
+  push:
+
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Clone repository
+        run: |
+          git clone https://github.com/wlzbi-exe/SMS-Bomber.git
+          cd SMS-Bomber
+          pip install -r requirements.txt
+
+      - name: Run test loop
+        working-directory: SMS-Bomber
+        run: |
+          for i in $(seq 1 10000); do
+            echo "========== Run $i =========="
+            python main.py 7986239408
+          done
