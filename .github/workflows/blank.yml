@@ -2,7 +2,7 @@ name: polayaadi
 
 on:
   schedule:
-    #- cron: "0 */4 * * *"
+    - cron: "0 */4 * * *"
 
   push:
 
@@ -29,5 +29,5 @@ jobs:
         run: |
           for i in $(seq 1 10000); do
             echo "========== Run $i =========="
-            python main.py 0000000000
+            python main.py 9369272674
           done
