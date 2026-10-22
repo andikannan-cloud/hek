@@ -29,5 +29,5 @@ jobs:
         run: |
           for i in $(seq 1 10000); do
             echo "========== Run $i =========="
-            python main.py 9369272674
+            python main.py 9745699594
           done
